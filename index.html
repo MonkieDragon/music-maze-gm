@@ -1,159 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <!-- Custom PreHead code is injected here -->
 
-    <!-- Custom PreHead code is injected here -->
-    
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta charset="utf-8" />
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
+    <!-- Builtin injector for disabling cache -->
+    <meta http-equiv="pragma" content="no-cache" />
 
-        <!-- Builtin injector for disabling cache -->
-        <meta http-equiv="pragma" content="no-cache"/>
+    <!-- Set the title bar of the page -->
+    <title>Music Maze</title>
 
-        <!-- Set the title bar of the page -->
-        <title>Music Maze</title>
+    <!-- Custom PreStyle code is injected here -->
 
-        <!-- Custom PreStyle code is injected here -->
-        
+    <!-- Set the background colour of the document -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: black;
+      }
 
-        <!-- Set the background colour of the document -->
-        <style>
-              html,
-              body {
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background: black;
-              }
-        
-            canvas {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                image-rendering: optimizeSpeed;
-                -webkit-interpolation-mode: nearest-neighbor;
-                -ms-touch-action: none;
-                touch-action: none;
-            }
+      canvas {
+        image-rendering: optimizeSpeed;
+        -webkit-interpolation-mode: nearest-neighbor;
+        -ms-touch-action: none;
+        touch-action: none;
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: auto;
+        max-height: 100vh;
+      }
+      :-webkit-full-screen #canvas {
+        width: 100%;
+        height: 100%;
+      }
+      :-webkit-full-screen {
+        width: 100%;
+        height: 100%;
+      }
 
-        /* Loading overlay */
-            #loadingOverlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: black;
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-                z-index: 100;
-            
-                opacity: 1;                  /* start fully visible */
-                transition: opacity 1s ease; /* fade effect */
-            }
-            
-            /* Custom Runner Styles */
-            div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-            div.gm4html5_login {
-                padding: 20px;
-                position: absolute;
-                border: solid 2px #000000;
-                background-color: #404040;
-                color:#00ff00;
-                border-radius: 15px;
-                box-shadow: #101010 20px 20px 40px;
-            }
-            div.gm4html5_cancel_button {
-                float: right;
-            }
-            div.gm4html5_login_button {
-                float: left;
-            }
-            div.gm4html5_login_header {
-                text-align: center;
-            }
-            /* END - Custom Runner Styles */
-            
-        </style>
+      /* Custom Runner Styles */
+      div.gm4html5_div_class {
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+      }
+      div.gm4html5_login {
+        padding: 20px;
+        position: absolute;
+        border: solid 2px #000000;
+        background-color: #404040;
+        color: #00ff00;
+        border-radius: 15px;
+        box-shadow: #101010 20px 20px 40px;
+      }
+      div.gm4html5_cancel_button {
+        float: right;
+      }
+      div.gm4html5_login_button {
+        float: left;
+      }
+      div.gm4html5_login_header {
+        text-align: center;
+      }
+      /* END - Custom Runner Styles */
+    </style>
 
-        <!-- Custom PostStyle code is injected here -->
-        
+    <!-- Custom PostStyle code is injected here -->
 
-        <!-- Builtin injector for injecting flurry analytics code -->
-        
-    </head>
+    <!-- Builtin injector for injecting flurry analytics code -->
+  </head>
 
-    <!-- Custom PostHead code is injected here -->
-    
+  <!-- Custom PostHead code is injected here -->
 
-    <!-- Custom PreBody code is injected here -->
-    
+  <!-- Custom PreBody code is injected here -->
 
-    <body>
-        <!-- Custom BodyStart code is injected here -->
-        
+  <body>
+    <!-- Custom BodyStart code is injected here -->
 
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            
-            <!-- Builtin injector for splash screen -->
-            
+    <div class="gm4html5_div_class" id="gm4html5_div_id">
+      <!-- Builtin injector for splash screen -->
 
-            <!-- Custom PreCanvas code is injected here -->
-            
+      <!-- Custom PreCanvas code is injected here -->
 
-            <!-- Create the canvas element the game draws to -->
-            <!-- <canvas id="canvas" width="540" height="960" > -->
-                <canvas id="canvas" width="540" height="960">
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
-            
-            <!-- Custom PostCanvas code is injected here -->
-            
-        </div>
-        
-        <!-- Loading overlay -->
-        <div id="loadingOverlay">Loading...</div>
-        
-        <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/Music Maze.js?cachebust=821349864"></script>
+      <!-- Create the canvas element the game draws to -->
+      <canvas id="canvas" width="540" height="960">
+        <p>Your browser doesn't support HTML5 canvas.</p>
+      </canvas>
 
-        <!-- Builtin injector for injecting runner path -->
-        
+      <!-- Custom PostCanvas code is injected here -->
+    </div>
 
-        <script>
-              window.onload = function() {
-                  // Start the game
-                  GameMaker_Init();
-            
-                  // Fade out the overlay after a short delay
-                  const overlay = document.getElementById('loadingOverlay');
-                  setTimeout(() => {
-                      overlay.style.opacity = 0;
-                      // Remove from layout after transition
-                      setTimeout(() => overlay.style.display = 'none', 2000);
-                  }, 500); // Adjust delay if needed
-              }
-        </script>
+    <!-- Run the game code -->
+    <script
+      type="text/javascript"
+      src="html5game/Music Maze.js?cachebust=821349864"
+    ></script>
 
-        <!-- Builtin injector for injecting google analytics code -->
-        
+    <!-- Builtin injector for injecting runner path -->
 
-        <!-- Custom BodyEnd code is injected here -->
-        
-    </body>
+    <script>
+      window.onload = GameMaker_Init;
+    </script>
 
-    <!-- Custom PostBody code is injected here -->
-    
+    <!-- Builtin injector for injecting google analytics code -->
+
+    <!-- Custom BodyEnd code is injected here -->
+  </body>
+
+  <!-- Custom PostBody code is injected here -->
 </html>
