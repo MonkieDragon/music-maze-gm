@@ -30,32 +30,35 @@
                 background: black;
               }
         
-        canvas {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            image-rendering: optimizeSpeed;
-            -webkit-interpolation-mode: nearest-neighbor;
-            -ms-touch-action: none;
-            touch-action: none;
-        }
+            canvas {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                image-rendering: optimizeSpeed;
+                -webkit-interpolation-mode: nearest-neighbor;
+                -ms-touch-action: none;
+                touch-action: none;
+            }
 
         /* Loading overlay */
-        #loadingOverlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            z-index: 100;
-        }
+            #loadingOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: black;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                z-index: 100;
+            
+                opacity: 1;                  /* start fully visible */
+                transition: opacity 1s ease; /* fade effect */
+            }
             
             /* Custom Runner Styles */
             div.gm4html5_div_class {
@@ -129,7 +132,20 @@
         <!-- Builtin injector for injecting runner path -->
         
 
-        <script>window.onload = GameMaker_Init;</script>
+        <script>
+              window.onload = function() {
+                  // Start the game
+                  GameMaker_Init();
+            
+                  // Fade out the overlay after a short delay
+                  const overlay = document.getElementById('loadingOverlay');
+                  setTimeout(() => {
+                      overlay.style.opacity = 0;
+                      // Remove from layout after transition
+                      setTimeout(() => overlay.style.display = 'none', 1000);
+                  }, 500); // Adjust delay if needed
+              }
+        </script>
 
         <!-- Builtin injector for injecting google analytics code -->
         
