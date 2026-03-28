@@ -34,7 +34,6 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                bottom: -50%; right: -50%;
                 transform: translate(-50%, -50%);
                 image-rendering: optimizeSpeed;
                 -webkit-interpolation-mode: nearest-neighbor;
@@ -116,7 +115,7 @@
 
             <!-- Create the canvas element the game draws to -->
             <!-- <canvas id="canvas" width="540" height="960" > -->
-                <canvas id="canvas" width="1080" height="1920">
+                <canvas id="canvas" width="540" height="960">
                 <p>Your browser doesn't support HTML5 canvas.</p>
             </canvas>
             
@@ -143,7 +142,7 @@
                   setTimeout(() => {
                       overlay.style.opacity = 0;
                       // Remove from layout after transition
-                      setTimeout(() => overlay.style.display = 'none', 1000);
+                      setTimeout(() => overlay.style.display = 'none', 2000);
                   }, 500); // Adjust delay if needed
               }
         </script>
