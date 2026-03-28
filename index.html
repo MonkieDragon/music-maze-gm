@@ -30,28 +30,34 @@
                 background: black;
               }
         
-            canvas {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-            
-              transform-origin: top left;
-              transform: translate(-50%, -50%) scale(var(--scale));
-            
-              image-rendering: optimizeSpeed;
-              -webkit-interpolation-mode: nearest-neighbor;
-              -ms-touch-action: none;
-              touch-action: none;
-            }
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            image-rendering: optimizeSpeed;
+            -webkit-interpolation-mode: nearest-neighbor;
+            -ms-touch-action: none;
+            touch-action: none;
+        }
+
+        /* Loading overlay */
+        #loadingOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 100;
+        }
             
             /* Custom Runner Styles */
-            #gm4html5_div_id {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-            
             div.gm4html5_div_class {
                 margin: 0px;
                 padding: 0px;
@@ -113,23 +119,11 @@
             <!-- Custom PostCanvas code is injected here -->
             
         </div>
-
+        
+        <!-- Loading overlay -->
+        <div id="loadingOverlay">Loading...</div>
+        
         <!-- Run the game code -->
-                <script>
-        function resizeGame() {
-          const gameW = 540;
-          const gameH = 960;
-        
-          const scaleX = window.innerWidth / gameW;
-          const scaleY = window.innerHeight / gameH;
-          const scale = Math.min(scaleX, scaleY);
-        
-          document.documentElement.style.setProperty('--scale', scale);
-        }
-        
-        window.addEventListener('resize', resizeGame);
-        window.addEventListener('load', resizeGame);
-        </script>
         <script type="text/javascript" src="html5game/Music Maze.js?cachebust=821349864"></script>
 
         <!-- Builtin injector for injecting runner path -->
